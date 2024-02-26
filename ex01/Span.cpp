@@ -25,18 +25,36 @@ Span &Span::operator=(const Span &src) {
 
 Span::~Span() {}
 
-void Span::addNumber(int n) 
+void Span::addNumber(int number) 
 {
-    if (v.size() < this->n)
-        v.push_back(n);
-    else
-        throw std::exception();
+    if (v.size() + 1 > n)
+        throw Span::FullException();
+    v.push_back(number);
+}
+void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) 
+{
+    if (v.size() + std::distance(begin, end) > n)
+        throw Span::FullException();
+    v.insert(v.end(), begin, end);
+}
+void Span::print() 
+{
+    for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++) 
+    {
+        std::cout << *it << std::endl;
+    }
+}
+const char* Span::FullException::what() const throw() {
+    return "The container is full";
 }
 
+const char* Span::NoSpanException::what() const throw() {
+    return "There is no span to find";
+}
 int Span::shortestSpan() 
 {
     if (v.size() < 2)
-        throw std::exception();
+        throw Span::NoSpanException();
     int min = INT_MAX;
     for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++) 
     {

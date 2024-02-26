@@ -22,12 +22,23 @@ class Span{
         Span &operator=(const Span &src);
     //add number
         void addNumber(int n);
-
     //shortest span
         int shortestSpan();
     //longest span
         int longestSpan();
-
+    //exception class
+        class FullException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        class NoSpanException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+    void print();
+    void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 };
 
