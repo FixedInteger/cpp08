@@ -3,13 +3,13 @@ SRC = main.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
+INCLUDES = Span.hpp
+
 C++ = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
-START = @echo "\033[33m"
-END = @echo "\033[0m"
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDES)
 	$(C++) $(CFLAGS) -o $(NAME) $(OBJ)
 all: $(NAME)
 
