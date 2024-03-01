@@ -7,7 +7,6 @@ int main()
     mstack.push(17);
     std::cout << mstack.top() << std::endl;
     std::cout << "---" << std::endl;
-    mstack.pop();
     std::cout << mstack.size() << std::endl;
     mstack.push(3);
     mstack.push(5);

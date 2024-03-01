@@ -1,5 +1,5 @@
 NAME = ex00
-SRC = main.cpp easyfind.cpp
+SRC = main.cpp 
 OBJ = $(SRC:.cpp=.o)
 INCLUDES = Easyfind.hpp
 
